@@ -1,0 +1,47 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:aop="http://www.springframework.org/schema/aop"
+    xmlns:context="http://www.springframework.org/schema/context"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+    http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.0.xsd 
+     http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.0.xsd ">
+    <!-- bean definitions here -->
+	
+	
+	
+	 
+	
+	
+	<!-- *********************For  Color App Program Using Interfaces and Configuration *****************************  -->	
+	<context:component-scan base-package="com.springexample.config.usginterfaces"></context:component-scan>		
+	
+	
+	<!-- *********************For  Hello World Program *****************************  -->
+	
+	<bean id ="helloworld" class="com.springexample.helloworld.HelloWorld"></bean>	
+	
+	
+	
+	<!-- *********************For  Triangle Program *****************************  -->
+	
+	<bean id="triangle" class="com.springexample.triangle.Triangle">
+	<property name="pointA" ref="zeropoint"></property>
+	<property name="pointB" ref ="onepoint"></property>
+	<property name="pointC" ref ="twopoint"></property>
+	</bean>
+	
+	<bean id="zeropoint" class="com.springexample.triangle.Point">
+	<property name="X" value="0"></property>
+	<property name ="Y" value ="0"></property>
+	</bean>
+	
+	<bean id="onepoint" class="com.springexample.triangle.Point">
+	<property name="X" value="0"></property>
+	<property name="Y" value="-20"></property>
+	</bean>
+	
+	<bean id ="twopoint" class ="com.springexample.triangle.Point">
+	<property name="X" value ="20"></property>
+	<property name="Y" value ="0"></property>
+	</bean>
+	</beans>

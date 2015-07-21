@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:aop="http://www.springframework.org/schema/aop"
+    xmlns:context="http://www.springframework.org/schema/context"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+    http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.0.xsd 
+     http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.0.xsd ">
+    <!-- bean definitions here -->
+    
+    <!-- <context:component-scan base-package="com.advance.spring"></context:component-scan>
+     -->
+    <bean id="employee" class="com.advance.spring.Employee">
+    <property name="firstName" ref="a"></property>
+    <property name="lastName" ref="b"></property>
+    <property name="title" ref="c"></property>
+    </bean>
+    <bean id="a" class="java.lang.String">
+    <constructor-arg value="tom"></constructor-arg>
+    </bean>
+    <bean id ="b" class="java.lang.String">
+    <constructor-arg value="Cruise"></constructor-arg>
+    </bean>
+    <bean id="c" class="java.lang.String">
+    <constructor-arg value="Actor"></constructor-arg>
+    </bean>
+    
+    
+    
+    <!--  property is fields in classes and name should  -->
+        
+    <bean id="FlightBookingService" class="com.advance.spring.FlightBookingService">
+    <property name="pservice" ref="PersonService"></property>
+    <property name="aservice" ref="AirLineService"></property>
+    
+    </bean>
+     <bean id="PersonService" class="com.advance.spring.PersonService">
+     <property name="cservice" ref="CreditCardService"></property>
+     
+     </bean>
+     <bean id="AirLineService" class="com.advance.spring.AirLineService"></bean>
+     <bean id="CreditCardService" class="com.advance.spring.CreditCardService"></bean>
+    
+    
+    
+    
+    
+	
+	
+	</beans>

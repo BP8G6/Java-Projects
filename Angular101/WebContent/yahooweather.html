@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Weather Report...!</title>
+
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.16/angular.min.js"></script>
+<script src="yahooweather.js"></script>
+
+<style type="text/css">
+   body { background: #8FBC8F; }
+   
+    .container {
+   margin:0 auto; 
+   width:960px;
+   
+   }
+   </style>
+
+</head>
+
+<body>
+<div class="container" ng-app="weatherappmodule" ng-controller="weatherappcontroller">
+<div class="row">
+<form class="navbar-form navbar-left" role="search">
+  <div class="form-group">
+    <input type="text" class="form-control" placeholder="Pin Code...." ng-model="pin">
+  </div>
+  <button type="submit" class="btn btn-default" ng-click="onClick()">Search</button>
+  
+</form>
+
+
+ <div ng-repeat="city in cities">   
+<div class="navbar-form navbar-right">
+  
+    <div class="thumbnail">
+      <img src="F:\BellInfo_Practice\Angular101\images\h1.jpg" alt="..." width="100" height="100">
+      <div class="caption">
+        <h3>Feeling Hungry....!</h3>
+        <p><a href="file:///F:/BellInfo_Practice/Angular101/WebContent/findresturant.html" class="btn btn-primary" role="button">Search For Food</a></p>
+      </div>
+    </div>
+  
+</div>
+
+
+  
+  </br></br></br></br>
+    
+    <h1>{{city.query.results.channel.description}} @ {{city.query.results.channel.lastBuildDate}}</h1>
+  
+  <div class="row">  
+    <div class="thumbnail">
+    <h3>Present Report</h3>    
+      <div class="caption">
+        
+        
+        
+         <table style="width:100%">
+  <tr>
+  <th>Condition</th>
+  <th>SunRise</th>
+  <th>Sunset</th>
+    <th>Humidity</th>
+    <th>Visibility</th>
+    <th>Pressure</th>
+    <th>High</th>
+    <th>Low</th>
+    <th>status</th>
+  </tr>
+  <tr>
+  <td><img alt="" src="http://l.yimg.com/a/i/us/we/52/{{city.query.results.channel.item.forecast[0].code}}.gif"></td>
+  <td>{{city.query.results.channel.astronomy.sunrise}}</td>
+  <td>{{city.query.results.channel.astronomy.sunset}}</td>
+  <td>{{city.query.results.channel.atmosphere.humidity}}%</td>
+  <td>{{city.query.results.channel.atmosphere.visibility}} km</td>
+  <td>{{city.query.results.channel.atmosphere.pressure}} mb</td>
+    <td>{{city.query.results.channel.item.forecast[0].high}}</td>
+    <td>{{city.query.results.channel.item.forecast[0].low}}</td>
+    <td>{{city.query.results.channel.item.forecast[0].text}}</td>
+    
+  </tr>
+  
+ 
+</table>
+     
+       </div>
+    </div>
+ 
+
+  
+  </div>
+  
+  
+   		
+  <div class="table-responsive">
+      
+        <table  style="width:100%">
+  <tr>
+  <th>Condition</th>
+  
+  
+  
+  
+  
+    <th>Date</th>
+    <th>Day</th>
+    <th>High</th>
+    <th>Low</th>
+    <th>status</th>
+  </tr>
+  <tr>
+  <td><img alt="" src="http://l.yimg.com/a/i/us/we/52/{{city.query.results.channel.item.forecast[0].code}}.gif"></td>
+    <td>{{city.query.results.channel.item.forecast[0].date}}</td>
+    <td>{{city.query.results.channel.item.forecast[0].day}}</td>
+    <td>{{city.query.results.channel.item.forecast[0].high}}</td>
+    <td>{{city.query.results.channel.item.forecast[0].low}}</td>
+    <td>{{city.query.results.channel.item.forecast[0].text}}</td>
+    
+  </tr>
+  
+  <tr>
+  <td><img alt="" src="http://l.yimg.com/a/i/us/we/52/{{city.query.results.channel.item.forecast[1].code}}.gif"></td>
+    <td>{{city.query.results.channel.item.forecast[1].date}}</td>
+    <td>{{city.query.results.channel.item.forecast[1].day}}</td>
+    <td>{{city.query.results.channel.item.forecast[1].high}}</td>
+    <td>{{city.query.results.channel.item.forecast[1].low}}</td>
+    <td>{{city.query.results.channel.item.forecast[1].text}}</td>
+    
+  </tr>
+  
+  <tr>
+  <td><img alt="" src="http://l.yimg.com/a/i/us/we/52/{{city.query.results.channel.item.forecast[2].code}}.gif"></td>
+    <td>{{city.query.results.channel.item.forecast[2].date}}</td>
+    <td>{{city.query.results.channel.item.forecast[2].day}}</td>
+    <td>{{city.query.results.channel.item.forecast[2].high}}</td>
+    <td>{{city.query.results.channel.item.forecast[2].low}}</td>
+    <td>{{city.query.results.channel.item.forecast[2].text}}</td>
+    
+  </tr>
+  
+  <tr>
+  <td><img alt="" src="http://l.yimg.com/a/i/us/we/52/{{city.query.results.channel.item.forecast[3].code}}.gif"></td>
+    <td>{{city.query.results.channel.item.forecast[3].date}}</td>
+    <td>{{city.query.results.channel.item.forecast[3].day}}</td>
+    <td>{{city.query.results.channel.item.forecast[3].high}}</td>
+    <td>{{city.query.results.channel.item.forecast[3].low}}</td>
+    <td>{{city.query.results.channel.item.forecast[3].text}}</td>
+    
+  </tr>
+  
+  <tr>
+  <td><img alt="" src="http://l.yimg.com/a/i/us/we/52/{{city.query.results.channel.item.forecast[4].code}}.gif"></td>
+    <td>{{city.query.results.channel.item.forecast[4].date}}</td>
+    <td>{{city.query.results.channel.item.forecast[4].day}}</td>
+    <td>{{city.query.results.channel.item.forecast[4].high}}</td>
+    <td>{{city.query.results.channel.item.forecast[4].low}}</td>
+    <td>{{city.query.results.channel.item.forecast[4].text}}</td>
+    
+  </tr>
+</table>
+      
+    
+      
+        
+      
+      
+  </div>
+  
+  
+  
+</div>
+</div>
+
+</div>
+</body>
+</html>
